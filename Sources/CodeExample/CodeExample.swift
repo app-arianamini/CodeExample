@@ -14,7 +14,7 @@ public class EventTracker: NSObject {
     private var motionManager = CMMotionManager()
     private var eventsData: [EventData] = []
     
-    @objc public func start() {
+    @objc public func start(application: UIApplication) {
         if motionManager.isAccelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.2
             motionManager.startAccelerometerUpdates(
@@ -33,7 +33,7 @@ public class EventTracker: NSObject {
         }
         
         if #available(iOS 13.0, *) {
-            let scene = UIApplication.shared.connectedScenes.first
+            let scene = application.connectedScenes.first
             guard let windowScene = scene as? UIWindowScene else { return }
             
             let window = windowScene.windows.first { $0.isKeyWindow }
@@ -44,7 +44,7 @@ public class EventTracker: NSObject {
         }
     }
     
-    @objc public func stopAndReset() -> String {
+    @objc public func stopAndResetAndReturnCSV() -> String {
         var copyEventsData = eventsData
         motionManager.stopAccelerometerUpdates()
         
