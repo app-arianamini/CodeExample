@@ -32,7 +32,7 @@ public class EventTracker: NSObject {
             }
         }
         
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *) { // TODO: Will only works with swift UI, handle UIKit later
             let scene = application.connectedScenes.first
             guard let windowScene = scene as? UIWindowScene else { return }
             
@@ -55,6 +55,7 @@ public class EventTracker: NSObject {
     }
     
     @objc private func handleTapGesture(gesture: UITapGestureRecognizer) {
+        // TODO: location is zero
         let location = gesture.location(in: gesture.view)
         let eventData = EventData(
             timestamp: Date(),
