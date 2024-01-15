@@ -1,7 +1,7 @@
 import XCTest
-@testable import CodeExample
+@testable import CodeExampleFrame
 
-final class CodeExampleTests: XCTestCase {
+final class CodeExampleFrameTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
