@@ -14,7 +14,7 @@ public class EventTracker: NSObject {
     private var motionManager = CMMotionManager()
     private var eventsData: [EventData] = []
     
-    public func start() {
+    @objc public func start() {
         if motionManager.isAccelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.2
             motionManager.startAccelerometerUpdates(
@@ -44,7 +44,7 @@ public class EventTracker: NSObject {
         }
     }
     
-    public func stopAndReset() -> String {
+    @objc public func stopAndReset() -> String {
         var copyEventsData = eventsData
         motionManager.stopAccelerometerUpdates()
         
