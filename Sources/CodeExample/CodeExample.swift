@@ -8,7 +8,7 @@ fileprivate struct EventData {
 }
 
 public class EventTracker: NSObject {
-    public static let shared = EventTracker()
+    @objc public static let shared = EventTracker()
     private override init() {}
     
     private var motionManager = CMMotionManager()
